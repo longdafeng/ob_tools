@@ -13,12 +13,10 @@ There are several limitations:
 Run these commands:
 
 ```
-./init_ssh root $password hosts
-./init_ob.sh
+./init_ob.sh $ROOT_PASSWORD $OB_USER
 
 ```
 
-Here's what each parameter means for the script init_ssh.sh:
-- `$user`: root, right now we hardcode root
-- `$password`: the password of the user.
-- `$host_file`: hosts, the file containing the host list. right now we hardcode the file name hosts
+Here's what each parameter means for the script init_ob.sh:
+- `$ROOT_PASSWORD`: the password of the root.
+- `$OB_USER`: OB_USER: the user who will run OceanBase, default is admin
