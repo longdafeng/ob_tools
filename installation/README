@@ -1,0 +1,24 @@
+# Background
+
+This document guides you through the setup of the operating system for OceanBase.
+
+There are several limitations:
+
+1. The operating system has three disks. The first disk is for the system, the second disk is for OceanBase Clog, and the third disk is for OceanBase data.
+2. all operations need super privilege, so need root password, 
+3. the user who runs oceanbase is 'admin', if want to change the user, please modify 'init_user.sh'
+
+# Instructions
+
+Run these commands:
+
+```
+./init_ssh root $password hosts
+./init_ob.sh
+
+```
+
+Here's what each parameter means for the script init_ssh.sh:
+- `$user`: root, right now we hardcode root
+- `$password`: the password of the user.
+- `$host_file`: hosts, the file containing the host list. right now we hardcode the file name hosts
