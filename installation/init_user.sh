@@ -1,10 +1,12 @@
 #!/bin/bash
 
-if [ $# -eq 0  ]; then
-    USER = $USER
+NEW_USER=${USER}
 
+if [ $# -eq 0  ]; then
+    echo "User current user:" $USER
 elif [ $# -eq 1 ]; then
-        USER = $1
+        NEW_USER=$1
+        echo "user:" $1
 else
         echo "Useage: "
         echo "user: the user who will run oceanbase, default is $USER"
@@ -12,15 +14,15 @@ else
 fi
 
 
-
 echo "create user "
-./sshs.sh useradd $USER
-./sshs.sh passwd $USER
+./sshs.sh useradd $NEW_USER
+./sshs.sh passwd $NEW_USER
 
-# This is for ocp 
-./sshs.sh "echo '$USER  ALL=(ALL)       NOPASSWD: ALL ' >> /etc/sudoers"
+# This is for ocp
+./sshs.sh "echo '$NEW_USER  ALL=(ALL)       NOPASSWD: ALL ' >> /etc/sudoers"
 
 echo "change user"
 ./sshs.sh mkdir -p /data/ob /clog/ob
-./sshs.sh chown -R $USER /data
-./sshs.sh chown -R $USER /clog
+./sshs.sh chown -R $NEW_USER /data
+./sshs.sh chown -R $NEW_USER /clog
+                                
