@@ -7,18 +7,24 @@ password=$4
 db=$5
 data_dir=$6
 target=$7
-extra_index=""
-if [ $# -eq 8 ]; then
-        extra_index=$8
-        echo "Extra index will be used :" $extra_index
-fi
 extra_setting=""
-if [ $# -eq 9 ]; then
-        extra_setting=$9
+if [ $# -eq 8 ]; then
+        extra_setting=$8
         echo "Extra index will be used :" $extra_setting
-        mysql -h${host} -u${user} -p${password} -P${port}  < $extra_setting
 fi
 
+if [ "$extra_setting" = "" ]; then
+
+else
+
+        mysql -h${host} -u${user} -p${password} -P${port}  < $extra_setting
+fi
+        
+extra_index=""
+if [ $# -eq 9 ]; then
+        extra_index=$9
+        echo "Extra index will be used :" $extra_index
+fi
 
 echo "@@@@@@@@@@@@@@ step 1: create database @@@@@@@@@@@@@@@@@@@"
 date
