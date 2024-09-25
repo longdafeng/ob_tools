@@ -1,0 +1,35 @@
+
+### Introduction ###
+
+First step is generate testing data. 
+Here are several comments:
+1. Currently this script just generate 100G data, user can modify as user can.
+2. This script skip to generate sql for TPCH, directly use the default script. user can manual generate the sql, and modify the sql.   
+
+./generate
+
+
+Second step is loading testing data
+./load.sh xxx xxx xxx xxx xxxx xxxx xxxx
+
+Please refer the script for parameter's details. 
+
+
+
+Last step is running tpch sql query. 
+Do as the following:
+
+./run.py -f mysql/mysql.cfg
+
+
+### comments ###
+
+In fact, this script is a simple testing script, 
+the offical tpch benchmark has much more extra requirement, 
+such do write/transaction action during query.
+
+
+Every step will take much time to execture, user can directly merge all script into one script and execute as the following
+
+nohub ./mysql > mysql.log 2>&1 &
+

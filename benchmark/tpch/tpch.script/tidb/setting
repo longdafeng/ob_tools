@@ -1,0 +1,1 @@
+SET GLOBAL tidb_mem_quota_query = 0;
