@@ -1,1 +1,2 @@
 SET GLOBAL tidb_mem_quota_query = 0;
+set global tidb_gc_life_time=8760h0m0s
